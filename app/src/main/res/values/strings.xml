@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_global">Global</string>
+    <string name="title_sub_one">Sub One</string>
+    <string name="title_sub_two">Sub Two</string>
+    <string name="title_sub_three">Sub Three</string>
+    <string name="go_to_global">go to global</string>
+    <string name="go_to_sub">go to sub</string>
+    <string name="go_to_next">go to next</string>
+    <string name="go_to_login_two">go to login two</string>
+    <string name="go_to_main_screen">go to main screen</string>
+</resources>

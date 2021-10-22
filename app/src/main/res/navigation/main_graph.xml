@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@+id/navigation_home">
+
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.myapplication.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.myapplication.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.myapplication.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/globalFragment"
+        android:name="com.example.myapplication.ui.global.GlobalFragment"
+        android:label="fragment_global"
+        tools:layout="@layout/fragment_global">
+        <argument
+            app:nullable="true"
+            android:name="caller"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_globalFragment_to_subFragmentOne"
+            app:destination="@id/subFragmentOne" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_fragment"
+        app:destination="@id/globalFragment" />
+    <fragment
+        android:id="@+id/subFragmentOne"
+        android:name="com.example.myapplication.ui.global.sub.SubFragmentOne"
+        android:label="SubFragmentOne" >
+        <action
+            android:id="@+id/action_subFragmentOne_to_subFragmentTwo"
+            app:destination="@id/subFragmentTwo" />
+    </fragment>
+    <fragment
+        android:id="@+id/subFragmentTwo"
+        android:name="com.example.myapplication.ui.global.sub.SubFragmentTwo"
+        android:label="SubFragmentTwo" >
+        <action
+            android:id="@+id/action_subFragmentTwo_to_subFragmentThree"
+            app:destination="@id/subFragmentThree" />
+    </fragment>
+    <fragment
+        android:id="@+id/subFragmentThree"
+        android:name="com.example.myapplication.ui.global.sub.SubFragmentThree"
+        android:label="SubFragmentThree" >
+        <action
+            android:id="@+id/action_subFragmentThree_to_globalFragment"
+            app:destination="@id/globalFragment" />
+    </fragment>
+
+
+</navigation>
