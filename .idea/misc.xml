@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/layout/fragment_global_action.xml" value="0.3241025641025641" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.32916666666666666" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.32916666666666666" />
+        <entry key="app/src/main/res/layout/fragment_login_one.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/layout/fragment_login_two.xml" value="0.32916666666666666" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.5515625" />
         <entry key="app/src/main/res/layout/fragment_sub_one.xml" value="0.32916666666666666" />

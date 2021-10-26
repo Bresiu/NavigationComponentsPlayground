@@ -6,12 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentNotificationsBinding
-import com.example.myapplication.ui.dashboard.DashboardFragment
 import com.example.myapplication.ui.global.GlobalFragmentDirections
 
 class NotificationsFragment : Fragment() {
@@ -24,12 +21,12 @@ class NotificationsFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         notificationsViewModel =
-                ViewModelProvider(this).get(NotificationsViewModel::class.java)
+            ViewModelProvider(this).get(NotificationsViewModel::class.java)
 
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root

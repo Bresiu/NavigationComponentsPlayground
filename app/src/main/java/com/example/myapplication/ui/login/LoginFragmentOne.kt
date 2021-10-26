@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import com.example.myapplication.ActivityViewModel
+import androidx.navigation.findNavController
 import com.example.myapplication.databinding.FragmentLoginOneBinding
 
 class LoginFragmentOne : Fragment() {
@@ -22,7 +21,12 @@ class LoginFragmentOne : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentLoginOneBinding.inflate(inflater, container, false)
-        return binding.root
+        val root: View = binding.root
+        binding.goToLoginTwo.setOnClickListener {
+            val action = LoginFragmentOneDirections.actionLoginFragmentOneToLoginFragmentTwo()
+            root.findNavController().navigate(action)
+        }
+        return root
     }
 
     override fun onDestroyView() {

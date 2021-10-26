@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.myapplication.ActivityViewModel
 import com.example.myapplication.databinding.FragmentGlobalBinding
 
 class GlobalFragment : Fragment() {
+    private val activityViewModel: ActivityViewModel by activityViewModels()
     private lateinit var globalViewModel: GlobalViewModel
     private var _binding: FragmentGlobalBinding? = null
     private val args: GlobalFragmentArgs by navArgs()
@@ -33,6 +36,16 @@ class GlobalFragment : Fragment() {
         }
         binding.caller.text = args.caller
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        activityViewModel.isUserLoggedIn.observe(this) { isUserLoggedIn ->
+            if (!isUserLoggedIn) {
+                val action = GlobalFragmentDirections.actionGlobalFragmentToLoginFragmentOne()
+                binding.root.findNavController().navigate(action)
+            }
+        }
     }
 
     override fun onDestroyView() {

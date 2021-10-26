@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_graph"
+    app:startDestination="@id/loginFragmentOne">
+
+    <fragment
+        android:id="@+id/loginFragmentOne"
+        android:name="com.example.myapplication.ui.login.LoginFragmentOne"
+        android:label="LoginFragmentOne">
+        <action
+            android:id="@+id/action_loginFragmentOne_to_loginFragmentTwo"
+            app:destination="@id/loginFragmentTwo" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragmentTwo"
+        android:name="com.example.myapplication.ui.login.LoginFragmentTwo"
+        android:label="LoginFragmentTwo" />
+</navigation>

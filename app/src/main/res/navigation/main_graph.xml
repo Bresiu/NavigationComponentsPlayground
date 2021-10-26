@@ -5,23 +5,35 @@
     android:id="@+id/main_graph"
     app:startDestination="@+id/navigation_home">
 
-
+    <include app:graph="@navigation/login_graph" />
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.myapplication.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_globalFragment"
+            app:destination="@id/globalFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.myapplication.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_navigation_dashboard_to_globalFragment"
+            app:destination="@id/globalFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.myapplication.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_notifications">
+        <action
+            android:id="@+id/action_navigation_notifications_to_globalFragment"
+            app:destination="@id/globalFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/globalFragment"
@@ -29,12 +41,15 @@
         android:label="fragment_global"
         tools:layout="@layout/fragment_global">
         <argument
-            app:nullable="true"
             android:name="caller"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <action
             android:id="@+id/action_globalFragment_to_subFragmentOne"
             app:destination="@id/subFragmentOne" />
+        <action
+            android:id="@+id/action_globalFragment_to_loginFragmentOne"
+            app:destination="@id/login_graph" />
     </fragment>
 
     <action
@@ -43,7 +58,7 @@
     <fragment
         android:id="@+id/subFragmentOne"
         android:name="com.example.myapplication.ui.global.sub.SubFragmentOne"
-        android:label="SubFragmentOne" >
+        android:label="SubFragmentOne">
         <action
             android:id="@+id/action_subFragmentOne_to_subFragmentTwo"
             app:destination="@id/subFragmentTwo" />
@@ -51,7 +66,7 @@
     <fragment
         android:id="@+id/subFragmentTwo"
         android:name="com.example.myapplication.ui.global.sub.SubFragmentTwo"
-        android:label="SubFragmentTwo" >
+        android:label="SubFragmentTwo">
         <action
             android:id="@+id/action_subFragmentTwo_to_subFragmentThree"
             app:destination="@id/subFragmentThree" />
@@ -59,11 +74,9 @@
     <fragment
         android:id="@+id/subFragmentThree"
         android:name="com.example.myapplication.ui.global.sub.SubFragmentThree"
-        android:label="SubFragmentThree" >
+        android:label="SubFragmentThree">
         <action
             android:id="@+id/action_subFragmentThree_to_globalFragment"
             app:destination="@id/globalFragment" />
     </fragment>
-
-
 </navigation>
